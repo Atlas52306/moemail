@@ -243,7 +243,7 @@ pnpm deploy:cleanup
 - 手动触发时，可以选择性地执行特定的部署任务
 - 每次部署都会重新部署主应用
 
-[![Deploy to Cloudflare Workers](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/beilunyang/moemail)
+[![Deploy to Cloudflare Workers](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/Atlas52306/moemail)
 
 
 ## 邮箱域名配置
