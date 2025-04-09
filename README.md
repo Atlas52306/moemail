@@ -129,6 +129,9 @@ pnpm generate-test-data
 ```
 ## 部署
 
+### 视频版保姆级部署教程
+https://www.bilibili.com/video/BV19wrXY2ESM/
+
 ### 本地 Wrangler 部署
 1. 创建 .env 文件
 ```bash
@@ -153,12 +156,13 @@ pnpm dlx tsx ./scripts/deploy/index.ts
 1. 在 GitHub 仓库设置中添加以下 Secrets：
    - `CLOUDFLARE_API_TOKEN`: Cloudflare API 令牌
    - `CLOUDFLARE_ACCOUNT_ID`: Cloudflare 账户 ID
-   - `DATABASE_NAME`: D1 数据库名称
-   - `KV_NAMESPACE_NAME`: Cloudflare KV namespace 名称，用于存储网站配置
    - `AUTH_GITHUB_ID`: GitHub OAuth App ID
    - `AUTH_GITHUB_SECRET`: GitHub OAuth App Secret
    - `AUTH_SECRET`: NextAuth Secret，用来加密 session，请设置一个随机字符串
    - `CUSTOM_DOMAIN`: 网站自定义域名，用于访问 MoeMail (可选， 如果不填, 则会使用 Cloudflare Pages 默认域名)
+   - `PROJECT_NAME`: Pages 项目名 （可选，如果不填，则为 moemail） 
+   - `DATABASE_NAME`: D1 数据库名称 (可选，如果不填，则为 moemail-db)
+   - `KV_NAMESPACE_NAME`: Cloudflare KV namespace 名称，用于存储网站配置 （可选，如果不填，则为 moemail-kv）
 
 2. 选择触发方式：
 
@@ -424,6 +428,7 @@ const data = await res.json();
 - `KV_NAMESPACE_NAME`: Cloudflare KV namespace 名称，用于存储网站配置
 - `KV_NAMESPACE_ID`: Cloudflare KV namespace ID，用于存储网站配置 （可选， 如果不填, 则会自动通过 Cloudflare API 获取）
 - `CUSTOM_DOMAIN`: 网站自定义域名, 如：moemail.app (可选， 如果不填, 则会使用 Cloudflare Pages 默认域名)
+- `PROJECT_NAME`: Pages 项目名 （可选，如果不填，则为 moemail） 
 
 ## Github OAuth App 配置
 
