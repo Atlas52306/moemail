@@ -2,11 +2,12 @@
 
 import { useState, useEffect, useRef } from "react"
 import { useTranslations } from "next-intl"
-import { Loader2 } from "lucide-react"
+import { Loader2, Share2 } from "lucide-react"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Label } from "@/components/ui/label"
 import { useTheme } from "next-themes"
 import { useToast } from "@/components/ui/use-toast"
+import { ShareMessageDialog } from "./share-message-dialog"
 
 interface Message {
   id: string
@@ -209,7 +210,19 @@ export function MessageView({ emailId, messageId, messageType = 'received' }: Me
   return (
     <div className="h-full flex flex-col">
       <div className="p-4 space-y-3 border-b border-primary/20">
-        <h3 className="text-base font-bold">{message.subject}</h3>
+        <div className="flex items-start justify-between gap-2">
+          <h3 className="text-base font-bold flex-1">{message.subject}</h3>
+          <ShareMessageDialog 
+            emailId={emailId}
+            messageId={message.id} 
+            messageSubject={message.subject}
+            trigger={
+              <button className="p-1.5 hover:bg-primary/10 rounded-md transition-colors">
+                <Share2 className="h-4 w-4 text-gray-500" />
+              </button>
+            }
+          />
+        </div>
         <div className="text-xs text-gray-500 space-y-1">
           {message.from_address && (
             <p>{t("from")}: {message.from_address}</p>
